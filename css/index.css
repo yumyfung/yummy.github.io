@@ -18,35 +18,35 @@ em {color: #f28c48; }
 .wrap {position: relative;overflow: hidden;} 
 
 /*home*/
-.home .banner {padding: 60px 0;background: rgb(0, 165, 224);}
+.home .banner {padding: 60px 0;background: #368dce url(../img/icon_block.png);}
 .home .banner h1 {font-size: 92px;line-height: 100%;text-align: center;color: #fff;letter-spacing: -2px;}
 .home .banner h2 {margin: 35px 0;font-size: 24px;text-align: center;color: #fff;}
 .home .banner .btn_group {text-align: center;}
 .home .banner .mod_btn {display: inline-block;margin: 0 20px;padding: 12px 45px;border: 1px solid #fff;color: #fff;font-size: 18px;border-radius: 6px;}
-.home .banner .mod_btn:hover {background: #fff;color: rgb(0, 165, 224);}
+.home .banner .mod_btn:hover {background: #fff;color: #368dce;}
 .introduction {margin: 50px 200px;overflow: hidden;}
 .introduction_item {position: relative;float: left;width: 25%;text-align: center;}
-.introduction_item h2 {margin: 25px 0;font-size: 32px;font-weight: 500;color: rgb(0, 165, 224);overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.introduction_item h2 {margin: 25px 0;font-size: 32px;font-weight: 500;color: #368dce;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
 .introduction_item .detail {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
 .introduction_item .content {margin: 20px;padding: 10px;height: 210px;border: 1px solid #eee;}
-.home .mod_content_btn {display: inline-block;margin: 25px 0;padding: 6px 50px;border: 1px solid rgb(0, 165, 224);color: rgb(0, 165, 224);font-size: 18px;border-radius: 6px;}
-.home .mod_content_btn:hover {background: rgb(0, 165, 224);color: #fff;}
+.home .mod_content_btn {display: inline-block;margin: 25px 0;padding: 6px 50px;border: 1px solid #368dce;color: #368dce;font-size: 18px;border-radius: 6px;}
+.home .mod_content_btn:hover {background: #368dce;color: #fff;}
 .footer {margin: 0 220px;border-top: 1px solid #eee;padding: 20px 0;text-align: right;}
 
 
-.sidebar_bg {position: fixed;left: 0;top: 0;bottom: 0;width: 250px;background: rgb(0, 165, 224);}
+.sidebar_bg {position: fixed;left: 0;top: 0;bottom: 0;width: 250px;background: #368dce;}
 .sidebar {position: relative;float: left;width: 249px;border-right: 1px solid #85cccb}
 .logo {width: 249;height: 140px;font-size: 32px;font-weight: bold;line-height: 120px;text-align: center;border-bottom: 1px solid #85cccb;color: #fff;}
 .navmenu li {overflow: hidden;}
 .navmenu li a {display: block;padding: 12px 0;color: #fff;font-size: 16px;text-align: center;border-bottom: 1px solid #85cccb}
-.navmenu .current a, .navmenu li a:hover {position: relative;color: rgb(0, 165, 224);-webkit-transition: color .25s ease-out;z-index: 2;}
+.navmenu .current a, .navmenu li a:hover {position: relative;color: #368dce;-webkit-transition: color .25s ease-out;z-index: 2;}
 .navmenu li a::before {content: '';display: block;position: absolute;left: 0;top: 0;bottom: 0;right: 0;background: #f8f9fa;z-index: -1;-webkit-transform: translate3d(100%, 0, 0);transform: translate3d(100%, 0, 0);}
 .navmenu li.current a::before, .navmenu li a:hover::before {-webkit-transform: translate3d(0, 0, 0);transform: translate3d(0, 0, 0);opacity: 1;-webkit-transition: all .15s ease-in-out;transition: all .25s ease-in-out;}
-.navmenu li.current a {color: rgb(0, 165, 224);}
+.navmenu li.current a {color: #368dce;}
 
 .navmenu .subnav {display: none;}
 .navmenu .current .subnav {display: block;}
-.navmenu .subnav a {background: #fff;color: rgb(0, 165, 224);}
+.navmenu .subnav a {background: #fff;color: #368dce;}
 .navmenu li .subnav a::before {-webkit-transform: translate3d(100%, 0, 0);transform: translate3d(100%, 0, 0);}
 .navmenu .subnav a.current::before, .navmenu .subnav a:hover::before{-webkit-transform: translate3d(0, 0, 0);transform: translate3d(0, 0, 0);background: rgba(99,99,99,0.1)}
 
@@ -56,7 +56,7 @@ em {color: #f28c48; }
 
 .main {margin-left: 250px;}
 .mod_title {padding: 20px 0;margin: 0 20px;font-size: 24px;border-bottom: 1px solid #eee;}
-.mod_sub_title {margin: 20px 0;font-size: 20px;color: rgb(0, 165, 224);}
+.mod_sub_title {margin: 20px 0;font-size: 20px;color: #368dce;}
 .mod_strong_title {font-size: 18px;font-weight: bold;}
 .article {margin: 20px;}
 .article > p {margin: 20px 0;}
