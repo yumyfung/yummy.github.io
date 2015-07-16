@@ -57,7 +57,7 @@ em {color: #f28c48; }
 .main {margin-left: 250px;}
 .mod_title {padding: 20px 0;margin: 0 20px;font-size: 24px;border-bottom: 1px solid #eee;}
 .mod_sub_title {margin: 20px 0;font-size: 20px;color: #368dce;}
-.mod_strong_title {font-size: 18px;font-weight: bold;}
+.mod_strong_title {font-size: 14px;font-weight: bold;}
 .article {margin: 20px;}
 .article > p {margin: 20px 0;}
 .article img {max-width: 100%;}

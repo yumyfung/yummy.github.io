@@ -6,7 +6,7 @@
 	<meta name="description" content="Yummy是基于nodejs和gulp开发的一套简洁、实用的跨平台前端自动化流程构建工具，把多个功能模块整合到常用工作流程中去，目的是用于辅助团队开发，让web开发更迅速、简单。" />
     <meta name="keywords" content="Yummy 前端自动化流程 yumyfung gulp" />
 	<link rel="icon" type="image/x-icon" href="img/favicon.png">
-	<title>Yummy安装使用</title>
+	<title>Yummy 常见问题</title>
 	<script type="text/javascript" src="plugin/syntaxhighlighter/scripts/shCore.js"></script>
 	<script type="text/javascript" src="plugin/syntaxhighlighter/scripts/shBrushJScript.js"></script>
 	<link type="text/css" rel="stylesheet" href="plugin/syntaxhighlighter/styles/shCoreDefault.css">
@@ -20,9 +20,9 @@
 			<a href="./"><h1 class="logo">Yummy</h1></a>
 			<div class="navmenu">
 				<ul>
-					<li><a href="about.html">关于Yummy</a></li>
+					<li ><a href="about.html">关于Yummy</a></li>
 					<li><a href="flow.html">工作流程</a></li>
-					<li class="current"><a href="install.html">安装使用</a></li>
+					<li><a href="install.html">安装使用</a></li>
 					<li class="special"><a href="###">功能<i class="icon_direction"></i></a>
 						<nav class="subnav">
 							<a href="function-tools.html">基础工具</a>
@@ -32,7 +32,7 @@
 					</li>
 					<li><a href="command.html">命令</a></li>
 					<li><a href="ui.html">可视化</a></li>
-					<li><a href="question.html">常见问题</a></li>
+					<li class="current"><a href="###">常见问题</a></li>
 					<li class="special"><a href="###">我的插件<i class="icon_direction"></i></a>
 						<nav class="subnav">
 							<a href="plugin-gulp-ysprite.html">gulp-ysprite</a>
@@ -45,44 +45,33 @@
 			</div>
 		</div>
 		<div class="main">
-			<h2 class="mod_title">安装</h2>
+			<h2 class="mod_title">常见问题</h2>
 			<article class="article">
-				<h3 class="mod_sub_title">如何安装Yummy</h3>
 
-				<p>1、先在本地搭建好nodejs环境<a class="mod_link" href="https://nodejs.org/" target="_blank">https://nodejs.org/</a></p>
+				<p>以下是一些常见问题：</p>
 
-				<p>2、设置代理：（部分公司网如果有需要）</p>
+			    <p>1、问：使用 node install.js 安装插件时存在失败的情况怎么办？</p>
 
-				<pre class="brush: js;">
-				npm config set registry https://registry.npmjs.org
-				npm config set proxy http://proxy.XXX.com:8080/</pre>
+			    <p>答：插件安装失败的情况是可能存在的，有很多情况可能导致安装失败，包括公司网络，node版本过低等，在公司安装时建议配置好代理：</p>
 
-				<p>查看代理设置情况：</p>
+			    <pre class="brush: js;">npm config set proxy http://proxy.xxx.com:8080</pre>
 
-				<pre class="brush: js;">npm config list</pre>
+			    <p>如果确定网络是配置没问题，插件安装还是失败，有可能是node版本过低或者缓存导致的，这时候可以使用命令清除一下缓存，并更新一下node的版本。</p>
 
-				<p>3、把Yummy压缩包解压到本地项目根目录下（比如SVN）</p>
+			    <pre class="brush: js;">
+			        npm cache clean -f
+			        npm install -g n
+			        n stable</pre>
 
-				<p>4、打开终端窗口，执行如下命令安装基础依赖插件</p>
+			    <p>2、问：到底选择命令操作方式还是可视化操作方式好？</p>
 
-				<pre class="brush: js;">node install.js</pre>
+			    <p>答：两种方式都可以使用，甚至可以混合使用，取决于个人喜好，可视化操作是建立在命令操作方式之上的，相对会更加完善，具有方便性，一般情况下效率也更高效一些，但命令操作方式非常的适合基于文件夹维度的项目需求来使用，效率更高，而且命令行中有些挺好用的命令任务并没有完全迁移到界面中去，在命令中使用还是蛮不错的。</p>
 
-				<p>这个安装过程可能会比较慢，因为有些插件拉取会比较慢，大家可以先干别的事情，当所有的插件安装完之后会有提示“恭喜，所有插件安装完毕…”。到此所有的安装过程完毕。</p>
+			    <p>3、问：Yummy工具的跨平台性如何？</p>
 
-				<p><img src="img/install.png" alt="install picture"></p>
+			    <p>答：由于Nodejs本身的跨平台性，所以Yummy工具的命令操作方式是可以在任意平台下使用的，但是由于桌面应用程序框架 Electron 本身是不支持在 Windows XP 系统上运行的，所以可视化界面操作不建议在 Windows XP 系统上运行。</p>
 
-				<h3 class="mod_sub_title">修改配置</h3>
-				<p>打开qGulp文件夹下的config文件夹的base.json文件，修改以下地方的配置：</p>
-				<p>dir_mobile的值是你映射到本地的手机测试服务器硬盘分区路径</p>
-				<p>dir_233_css的值是你映射到本地的233服务器硬盘分区路径，这里只需要定位到根目录就好啦
-				自定义命令项根据个人使用习惯来配置</p>
-				<p><img src="img/install_config.png" alt="install config picture"></p>
-
-				<h3 class="mod_sub_title">测试是否成功</h3>
-				<p>当上面的两个步骤完成后，你就可以正式使用了，先来测试一下是否可以了，你只需要运行以下命令即可：（因为已经内置了一个测试用例）</p>
-				<pre class="brush: js;">gulp test</pre>
-				<p>此时如果出现下面的结果，表示可以正常使用啦</p>
-				<p><img src="img/install_test.png" alt="install test picture"></p>
+			    <p>欢迎大家多提<a href="https://github.com/yumyfung/yummy/issues">意见</a>帮助我们完善Yummy，也可以参与到我们的项目中来，一起来丰富工具的功能。</p>
 
 			</article>
 		</div>

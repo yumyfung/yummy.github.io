@@ -6,7 +6,7 @@
 	<meta name="description" content="Yummy是基于nodejs和gulp开发的一套简洁、实用的跨平台前端自动化流程构建工具，把多个功能模块整合到常用工作流程中去，目的是用于辅助团队开发，让web开发更迅速、简单。" />
     <meta name="keywords" content="Yummy 前端自动化流程 yumyfung gulp" />
 	<link rel="icon" type="image/x-icon" href="img/favicon.png">
-	<title>Yummy安装使用</title>
+	<title>Yummy UI</title>
 	<script type="text/javascript" src="plugin/syntaxhighlighter/scripts/shCore.js"></script>
 	<script type="text/javascript" src="plugin/syntaxhighlighter/scripts/shBrushJScript.js"></script>
 	<link type="text/css" rel="stylesheet" href="plugin/syntaxhighlighter/styles/shCoreDefault.css">
@@ -20,9 +20,9 @@
 			<a href="./"><h1 class="logo">Yummy</h1></a>
 			<div class="navmenu">
 				<ul>
-					<li><a href="about.html">关于Yummy</a></li>
+					<li ><a href="about.html">关于Yummy</a></li>
 					<li><a href="flow.html">工作流程</a></li>
-					<li class="current"><a href="install.html">安装使用</a></li>
+					<li><a href="install.html">安装使用</a></li>
 					<li class="special"><a href="###">功能<i class="icon_direction"></i></a>
 						<nav class="subnav">
 							<a href="function-tools.html">基础工具</a>
@@ -31,7 +31,7 @@
 						</nav>
 					</li>
 					<li><a href="command.html">命令</a></li>
-					<li><a href="ui.html">可视化</a></li>
+					<li class="current"><a href="###">可视化</a></li>
 					<li><a href="question.html">常见问题</a></li>
 					<li class="special"><a href="###">我的插件<i class="icon_direction"></i></a>
 						<nav class="subnav">
@@ -45,44 +45,30 @@
 			</div>
 		</div>
 		<div class="main">
-			<h2 class="mod_title">安装</h2>
+			<h2 class="mod_title">可视化</h2>
 			<article class="article">
-				<h3 class="mod_sub_title">如何安装Yummy</h3>
 
-				<p>1、先在本地搭建好nodejs环境<a class="mod_link" href="https://nodejs.org/" target="_blank">https://nodejs.org/</a></p>
+				<p>命令式操作的自动化工作流程有个弊端，命令操作的任务处理源基本是基于文件夹维度来操作的，考虑到命令本身太长就不好记的特性，很少是基于文件来操作的。所以命令操作是相对模糊的，因为它不能精确到文件，会产生很多处理过多的问题，比如压缩图片，如果只想有针对性的压缩其中某几张图片而不想全部再压缩一遍，那么命令式操作就不方便了，虽然也可以实现到这样的效果，但是命令相对会比较复杂。</p>
 
-				<p>2、设置代理：（部分公司网如果有需要）</p>
+				<p>桌面应用程序的前端框架electron结合命令式底层操作实现的可视化能完全的解决这个问题。</p>
 
-				<pre class="brush: js;">
-				npm config set registry https://registry.npmjs.org
-				npm config set proxy http://proxy.XXX.com:8080/</pre>
+				<h3 class="mod_sub_title">可视化操作</h3>
 
-				<p>查看代理设置情况：</p>
+				<h4 class="mod_strong_title">可视化启动</h4>
+				<p>可视化启动命令</p>
+				<pre class="brush: js;">gulp ui</pre>
 
-				<pre class="brush: js;">npm config list</pre>
+				<h4 class="mod_strong_title">使用示例：</h4>
 
-				<p>3、把Yummy压缩包解压到本地项目根目录下（比如SVN）</p>
+				<p><img src="img/ui.gif"/></p>
 
-				<p>4、打开终端窗口，执行如下命令安装基础依赖插件</p>
+    			<p>比如上传到样式服务器的操作只需要轻轻往上面一拖：</p>
 
-				<pre class="brush: js;">node install.js</pre>
+			    <p><img src="img/ui_upload.gif"/></p>
 
-				<p>这个安装过程可能会比较慢，因为有些插件拉取会比较慢，大家可以先干别的事情，当所有的插件安装完之后会有提示“恭喜，所有插件安装完毕…”。到此所有的安装过程完毕。</p>
+			    <p>为了方便一些爱好使用命令式操作的童鞋方便，减少来回切换界面与终端之间的操作，所以在可视化流程中也加入了命令操作的入口，命令使用跟之前的是一样的哟，大家可以根据喜好来选择操作方式即可：</p>
 
-				<p><img src="img/install.png" alt="install picture"></p>
-
-				<h3 class="mod_sub_title">修改配置</h3>
-				<p>打开qGulp文件夹下的config文件夹的base.json文件，修改以下地方的配置：</p>
-				<p>dir_mobile的值是你映射到本地的手机测试服务器硬盘分区路径</p>
-				<p>dir_233_css的值是你映射到本地的233服务器硬盘分区路径，这里只需要定位到根目录就好啦
-				自定义命令项根据个人使用习惯来配置</p>
-				<p><img src="img/install_config.png" alt="install config picture"></p>
-
-				<h3 class="mod_sub_title">测试是否成功</h3>
-				<p>当上面的两个步骤完成后，你就可以正式使用了，先来测试一下是否可以了，你只需要运行以下命令即可：（因为已经内置了一个测试用例）</p>
-				<pre class="brush: js;">gulp test</pre>
-				<p>此时如果出现下面的结果，表示可以正常使用啦</p>
-				<p><img src="img/install_test.png" alt="install test picture"></p>
+			    <p><img src="img/ui_cmd.gif"/></p>
 
 			</article>
 		</div>
