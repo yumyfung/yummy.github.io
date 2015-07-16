@@ -1,0 +1,108 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+	<meta name="description" content="Smartgulp是基于nodejs和gulp开发的一套简洁、实用的跨平台前端自动化流程构建工具，把多个功能模块整合到常用工作流程中去，目的是用于辅助团队开发，让web开发更迅速、简单。" />
+    <meta name="keywords" content="Smartgulp 前端自动化流程 yumyfung gulp" />
+	<link rel="icon" type="image/x-icon" href="img/favicon.png">
+	<title>Smartgulp工作记录</title>
+	<script type="text/javascript" src="plugin/syntaxhighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="plugin/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+	<link type="text/css" rel="stylesheet" href="plugin/syntaxhighlighter/styles/shCoreDefault.css">
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div class="wrap">
+		<div class="sidebar_bg"></div>
+		<div class="sidebar">
+			<a href="./"><h1 class="logo">Smartgulp</h1></a>
+			<div class="navmenu">
+				<ul>
+					<li><a href="about.html">关于Smartgulp</a></li>
+					<li><a href="flow.html">工作流程</a></li>
+					<li><a href="install.html">安装使用</a></li>
+					<li class="special current"><a href="###">功能<i class="icon_direction"></i></a>
+						<nav class="subnav">
+							<a href="function-tools.html">基础工具</a>
+							<a href="function-jobs.html" class="current">工作记录</a>
+							<a href="function-flow.html">工作流</a>
+						</nav>
+					</li>
+					<li><a href="command.html">命令</a></li>
+					<li class="special"><a href="###">我的插件<i class="icon_direction"></i></a>
+						<nav class="subnav">
+							<a href="plugin-gulp-ysprite.html">gulp-ysprite</a>
+							<a href="plugin-gulp-ystamp.html">gulp-ystamp</a>
+							<a href="plugin-gulp-next.html" class="current">gulp-next</a>
+						</nav>
+					</li>
+					<li><a href="https://github.com/yumyfung/Smartgulp.git" target="_blank">github</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="main">
+			<h2 class="mod_title">功能</h2>
+			<article class="article">
+				<h3 class="mod_sub_title">工作记录</h3>
+				<p>理解Smartgulp的工作记录管理是正确掌握后面Smartgulp工作流命令使用的前提。</p>
+				<p>工作流相关的命令是需要依赖一个工作记录来进行的，所有的工作目录均以json的格式保存到Smartgulp下的json/job.json文件中。</p>
+				<p>所谓工作记录，实际上是指用一个简单的别名来代表当前要处理任务的路径（包含html文件夹路径和样式文件夹路径）。Smartgulp是以项目的文件夹路径为维度来进行处理的。</p>
+				<p>举个例子，假如有一个文件架构如下：</p>
+				
+				<pre>
+SVN/
+│
+├── SmartGulp                
+│
+├── html/                
+│   │
+│   └── 音乐节抽奖活动
+│       ├── index.html                
+│       └── about.html
+│
+└── Mediastyle/
+    │
+    └── music_award/
+        ├── index.css                
+        │
+        ├── img/                
+        │   ├── bg1.jpg                
+        │   └── bg2.jpg
+        │
+        ├── slice                
+        │   ├── icon_share.png                
+        │   └── icon_comment.png
+        │
+        └── sprite/
+            └── inde.png
+					</pre>	
+
+				<p>html文件夹中存放的是项目的html文件，Mediastyle文件夹中存放的是项目的样式文件。</p>
+				<p>我们发现当前项目中有一个叫“音乐抽奖活动”的项目，对应的项目样式存放在music_award文件夹中。那么此时我们就可以建立起一个工作记录，把这两个路径对应起来。</p>
+				<p>下面开始以上图的例子来介绍工作记录命令的使用。</p>
+
+				<h3 class="mod_sub_title">工作记录命令</h3>
+				<h4 class="mod_strong_title">添加工作记录</h4>
+				<pre class="brush: js;">gulp add -d award,音乐抽奖活动,music_award	//award就是工作记录别称，用于快速管理工作记录，工作记录会添加到job.json文件中去，不需要加html和Mediastyle前缀路径的原因是在配置文件中已配置好</pre>
+				<h4 class="mod_strong_title">设置当前工作记录</h4>
+				<pre class="brush: js;">gulp set -d award</pre>
+				<h4 class="mod_strong_title">删除工作记录</h4>
+				<pre class="brush: js;">gulp delete -d award</pre>
+				<h4 class="mod_strong_title">查看所有工作记录</h4>
+				<pre class="brush: js;">gulp jobs</pre>
+				<h4 class="mod_strong_title">查看当前工作记录</h4>
+				<pre class="brush: js;">gulp current</pre>
+				<h4 class="mod_strong_title">打开一个工作记录</h4>
+				<pre class="brush: js;">gulp open [ -d award ]	//-d参数可选，不带-d参数打开当前工作记录</pre>
+
+				<p><a href="command.html" class="mod_link">更多详细命令&gt;</a></p>
+
+			</article>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

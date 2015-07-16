@@ -1,0 +1,102 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+	<meta name="description" content="Smartgulp是基于nodejs和gulp开发的一套简洁、实用的跨平台前端自动化流程构建工具，把多个功能模块整合到常用工作流程中去，目的是用于辅助团队开发，让web开发更迅速、简单。" />
+    <meta name="keywords" content="Smartgulp 前端自动化流程 yumyfung gulp" />
+	<link rel="icon" type="image/x-icon" href="img/favicon.png">
+	<title>我的插件gulp-ysprite</title>
+	<script type="text/javascript" src="plugin/syntaxhighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="plugin/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+	<link type="text/css" rel="stylesheet" href="plugin/syntaxhighlighter/styles/shCoreDefault.css">
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div class="wrap">
+		<div class="sidebar_bg"></div>
+		<div class="sidebar">
+			<a href="./"><h1 class="logo">Smartgulp</h1></a>
+			<div class="navmenu">
+				<ul>
+					<li><a href="about.html">关于Smartgulp</a></li>
+					<li><a href="flow.html">工作流程</a></li>
+					<li><a href="install.html">安装使用</a></li>
+					<li class="special"><a href="###">功能<i class="icon_direction"></i></a>
+						<nav class="subnav">
+							<a href="function-tools.html">基础工具</a>
+							<a href="function-jobs.html">工作记录</a>
+							<a href="function-flow.html">工作流</a>
+						</nav>
+					</li>
+					<li><a href="command.html">命令</a></li>
+					<li class="special current"><a href="###">我的插件<i class="icon_direction"></i></a>
+						<nav class="subnav">
+							<a href="plugin-gulp-ysprite.html" class="current">gulp-ysprite</a>
+							<a href="plugin-gulp-ystamp.html">gulp-ystamp</a>
+							<a href="plugin-gulp-next.html">gulp-next</a>
+						</nav>
+					</li>
+					<li><a href="https://github.com/yumyfung/Smartgulp.git" target="_blank">github</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="main">
+			<h2 class="mod_title">我的插件</h2>
+			<article class="article">
+				<h3 class="mod_sub_title">gulp-ysprite</h3>
+				<p>gulp插件，会合并样式中的含有slice的背景图片，并自动更新原CSS文件中的样式，适用普通PC和H5使用。</p>
+				<p><a class="mod_link" href="https://github.com/yumyfung/gulp-ysprite.git" target="_blank">gulp-ysprite github托管</a></p>
+				<p>gulp插件gulp-ysprite，特点如下：</p>
+				<div class="mod_list">
+					<ul>
+						<li>合并样式中的含有slice的背景图片</li>
+						<li>生成sprite文件夹，包含合并后的sprite图片</li>
+						<li>自动更新原CSS文件中的样式</li>
+						<li>适用制作普通PC和H5使用，包含生成二倍图和对应样式</li>
+					</ul>
+				</div>
+				
+				<h4 class="mod_strong_title">安装：</h4>
+				<pre class="brush: js;">npm install --save-dev gulp-ysprite</pre>
+				
+				<h4 class="mod_strong_title">参数：</h4>
+				<p>slice：存放需要合并图片的slice路径</p>
+				<p>sprite：生成sprite文件的路径</p>
+				<p>callback(stream)：回调函数，返回stream流</p>
+
+				<h4 class="mod_strong_title">使用：</h4>
+				<pre class="brush: js;">
+					var gulp = require('gulp');
+					var ySprite = require('gulp-ysprite');
+
+					gulp.src('test/*.css').pipe(ySprite({
+					    slice: 'test/slice',
+					    sprite: 'test/sprite',
+					    callback: function(stream){
+					        stream.pipe(gulp.dest('test/output'));
+					    }
+					}));</pre>
+
+					<h4 class="mod_strong_title">注意：</h4>
+					<div class="mod_list">
+						<ul>
+							<li>需要合并的图片书写样式背景时必须是background-image的形式</li>
+
+							<li>slice文件夹下可以再建立子文件夹，层级深度无限制，子文件夹内的图片会单独生成一个sprite文件</li>
+
+							<li>生成的sprite命名规范：slice根目录下的图片命名为index.png，层级深度为1的子文件夹直接按文件夹名字命名，层级大于1的文件夹命名采用“子文件夹1_子文件夹2”的命名方式，比如 slice/test/icons，生成 test_icons.png</li>
+
+							<li>针对H5有点不一样，需要首先在slice文件夹下建立一个2x文件夹，表示要生成的是二倍图，然后再在2x文件夹下放置图片，也可以放置子文件夹，和上面使用一样，但命名区别是生成的文件会带上@2x的命名规范，例如：slice/2x/test/icons文件夹下的图片会生成 test/icons@2x.png</li>
+
+							<li>此外，原样式文件中的background-image值会被替换，插件会自动添加计算后的background-position值，如果是2x文件夹下的图片，生成的样式文件中会自动生成background-size覆盖原先的值</li>
+						</ul>
+					</div>
+			</article>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

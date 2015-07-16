@@ -1,0 +1,83 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+	<meta name="description" content="Smartgulp是基于nodejs和gulp开发的一套简洁、实用的跨平台前端自动化流程构建工具，把多个功能模块整合到常用工作流程中去，目的是用于辅助团队开发，让web开发更迅速、简单。" />
+    <meta name="keywords" content="Smartgulp 前端自动化流程 yumyfung gulp" />
+	<link rel="icon" type="image/x-icon" href="img/favicon.png">
+	<title>Smartgulp工作流</title>
+	<script type="text/javascript" src="plugin/syntaxhighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="plugin/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+	<link type="text/css" rel="stylesheet" href="plugin/syntaxhighlighter/styles/shCoreDefault.css">
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div class="wrap">
+		<div class="sidebar_bg"></div>
+		<div class="sidebar">
+			<a href="./"><h1 class="logo">Smartgulp</h1></a>
+			<div class="navmenu">
+				<ul>
+					<li ><a href="about.html">关于Smartgulp</a></li>
+					<li><a href="flow.html">工作流程</a></li>
+					<li><a href="install.html">安装使用</a></li>
+					<li class="special current"><a href="###">功能<i class="icon_direction"></i></a>
+						<nav class="subnav">
+							<a href="function-tools.html">基础工具</a>
+							<a href="function-jobs.html">工作记录</a>
+							<a href="function-flow.html" class="current">工作流</a>
+						</nav>
+					</li>
+					<li><a href="command.html">命令</a></li>
+					<li class="special"><a href="###">我的插件<i class="icon_direction"></i></a>
+						<nav class="subnav">
+							<a href="plugin-gulp-ysprite.html">gulp-ysprite</a>
+							<a href="plugin-gulp-ystamp.html">gulp-ystamp</a>
+							<a href="plugin-gulp-next.html" class="current">gulp-next</a>
+						</nav>
+					</li>
+					<li><a href="https://github.com/yumyfung/Smartgulp.git" target="_blank">github</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="main">
+			<h2 class="mod_title">功能</h2>
+			<article class="article">
+				<h3 class="mod_sub_title">工作流</h3>
+				<p>工作流是区别于基础工具的，基础工具是不需要依赖任何工作记录来操作的，是独立的，随时可以使用，但是工作流是一个集成功能块的执行过程，它把本来需要多个步骤完成的过程构建成一个一步到位的自动化过程，工作流是依赖项目的，对一个项目进行高效处理。</p>
+				<p>目前工作流包含有：</p>
+				<div class="mod_list">
+					<ul>
+						<li>项目样式图片自动化一条龙服务(压缩->合并图片->base64->时间戳->...->上传文件到服务器)</li>
+						<li>移动页面手机测试环境搭建（上传html并打开测试页面，使用的是团队自己的测试服务器，需要配置）</li>
+						<li>生成提单文件（ars文件夹下）</li>
+						<li>扩展创建活动模板（模板位于template文件夹下，是一个团队长期沉淀出来的，可以用来扩展到Smartgulp中，可以更加方便地创建项目）</li>
+					</ul>
+				</div>
+				<p>在使用工作流命令前请先确保你的项目架构与Smartgulp相同，或者修改Smartgulp的配置路径使之符合你当前的文件架构。</p>
+				
+				<h3 class="mod_sub_title">工作流命令</h3>
+				<h4 class="mod_strong_title">提交样式到233服务器</h4>
+				<pre class="brush: js;">gulp upload_233 [ -u ] [ -r ] [ -f XXX,XXXX,... ]	//可选参数-u（只更新有改动的文件），-r（同步资源，结合-f来用），-f（指定文件上传，后面的文件可以拖动到窗口获得文件路径，多个文件用逗号隔开）</pre>
+				<h4 class="mod_strong_title">提交项目到手机测试服务器</h4>
+				<pre class="brush: js;">gulp upload_mobile -d 100 [ -u ] [ -r ] [ -f XXX,XXXX,... ] //同上</pre>
+				<h4 class="mod_strong_title">生成提单文件</h4>
+				<pre class="brush: js;">gulp ars [ -u ]	//可选参数-u（只更新有改动的文件）</pre>
+				<h4 class="mod_strong_title">生成提单文件</h4>
+				<pre class="brush: js;">gulp ars [ -u ]	//可选参数-u（只更新有改动的文件）</pre>
+				<h4 class="mod_strong_title">创建活动模板</h4>
+				<pre class="brush: js;">gulp template_event -d 活动html文件夹名称,活动样式文件夹名称 [ -a 工作记录名 ]	//创建普通PC活动模板，可选参数-a，表示是否创建完成后是否顺便把它添加到工作记录中去，参数值为工作记录名</pre>
+				<pre class="brush: js;">gulp template_mobile -d 活动html文件夹名称,活动样式文件夹名称 [ -a 工作记录名 ] //创建普通H5活动模板，可选参数-a同上</pre>
+				<pre class="brush: js;">gulp template_slide -d 活动html文件夹名称,活动样式文件夹名称 [ -a 工作记录名 ]	//创建普通分屏滑动H5活动模板，可选参数-a同上</pre>
+
+				<p><a href="command.html" class="mod_link">更多详细命令&gt;</a></p>
+
+			</article>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

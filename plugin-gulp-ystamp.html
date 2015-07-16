@@ -1,0 +1,104 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+	<meta name="description" content="Smartgulp是基于nodejs和gulp开发的一套简洁、实用的跨平台前端自动化流程构建工具，把多个功能模块整合到常用工作流程中去，目的是用于辅助团队开发，让web开发更迅速、简单。" />
+    <meta name="keywords" content="Smartgulp 前端自动化流程 yumyfung gulp" />
+	<link rel="icon" type="image/x-icon" href="img/favicon.png">
+	<title>我的插件gulp-ystamp</title>
+	<script type="text/javascript" src="plugin/syntaxhighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="plugin/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+	<link type="text/css" rel="stylesheet" href="plugin/syntaxhighlighter/styles/shCoreDefault.css">
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div class="wrap">
+		<div class="sidebar_bg"></div>
+		<div class="sidebar">
+			<a href="./"><h1 class="logo">Smartgulp</h1></a>
+			<div class="navmenu">
+				<ul>
+					<li><a href="about.html">关于Smartgulp</a></li>
+					<li><a href="flow.html">工作流程</a></li>
+					<li><a href="install.html">安装使用</a></li>
+					<li class="special"><a href="###">功能<i class="icon_direction"></i></a>
+						<nav class="subnav">
+							<a href="function-tools.html">基础工具</a>
+							<a href="function-jobs.html">工作记录</a>
+							<a href="function-flow.html">工作流</a>
+						</nav>
+					</li>
+					<li><a href="command.html">命令</a></li>
+					<li class="special current"><a href="###">我的插件<i class="icon_direction"></i></a>
+						<nav class="subnav">
+							<a href="plugin-gulp-ysprite.html">gulp-ysprite</a>
+							<a href="plugin-gulp-ystamp.html" class="current">gulp-ystamp</a>
+							<a href="plugin-gulp-next.html">gulp-next</a>
+						</nav>
+					</li>
+					<li><a href="https://github.com/yumyfung/Smartgulp.git" target="_blank">github</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="main">
+			<h2 class="mod_title">我的插件</h2>
+			<article class="article">
+				<h3 class="mod_sub_title">gulp-ystamp</h3>
+				<p>gulp插件gulp-ystamp，给样式中的背景图片添加时间戳等参数设置。</p>
+
+				<p><a class="mod_link" href="https://github.com/yumyfung/gulp-ystamp.git" target="_blank">gulp-ystamp github托管</a></p>
+
+				<h4 class="mod_strong_title">安装：</h4>
+				<pre class="brush: js;">npm install --save-dev gulp-ystamp</pre>
+
+				<h4 class="mod_strong_title">参数：</h4>
+				<p>stamp：参数对象，可以设置任意想添加的参数key和value</p>
+				<p>callback(stream, backgroundImgs)：回调函数，返回stream流和每个样式文件中的所有图片数组集合</p>
+
+				<h4 class="mod_strong_title">使用：</h4>
+				<pre class="brush: js;">
+					var gulp = require('gulp');
+					var yStamp = require('gulp-ystamp');
+
+					gulp.src('style/*.css').pipe(yStamp({
+					    stamp: {
+					        max_age: '2592000',
+					        d: (new Date()).format("yyyyMMddhhmmss")
+					    },
+					    callback: function(stream, backgroundImgs){
+					        stream.pipe(gulp.dest('style/output'));
+					    }
+					}));
+
+					Date.prototype.format = function(fmt){ 
+					  var o = {   
+					    "M+" : this.getMonth()+1,                 //月份   
+					    "d+" : this.getDate(),                    //日   
+					    "h+" : this.getHours(),                   //小时   
+					    "m+" : this.getMinutes(),                 //分   
+					    "s+" : this.getSeconds(),                 //秒   
+					    "q+" : Math.floor((this.getMonth()+3)/3), //季度   
+					    "S"  : this.getMilliseconds()             //毫秒   
+					  };   
+					  if(/(y+)/.test(fmt))   
+					    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));   
+					  for(var k in o)   
+					    if(new RegExp("("+ k +")").test(fmt))   
+					  fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)))   
+					  return fmt;   
+					}</pre>
+
+					<h4 class="mod_strong_title">使用：</h4>
+					<p>使用前样式：</p>
+					<pre class="brush: js;">.test {background-image:url(slice/black_btn_play.png)}</pre>
+					<p>使用后样式：</p>
+					<pre class="brush: js;">.test {background-image:url(slice/black_btn_play.png?max_age=2592000&d=20150514221347)}</pre>
+			</article>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
