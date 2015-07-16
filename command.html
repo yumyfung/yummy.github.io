@@ -61,22 +61,16 @@
 				<pre class="brush: js;">gulp current</pre>
 				<p>6、提单</p>
 				<pre class="brush: js;">gulp ars</pre>
-				<p>7、上传到233服务器</p>
-				<pre class="brush: js;">gulp upload_233 [ -r ] [ -f 文件1,文件2,... ]</pre>
-				<p>8、上传到手机测试服务器</p>
-				<pre class="brush: js;">gulp upload_mobile -d 100 [ -r ] [ -f 文件1,文件2,... ]       //（100是自定义文件夹，会在手机服务器目录下创建一个命名100的文件夹）</pre> 
-				<p>说明：命令7和命令8中的-r和-f是可选参数，两者一般结合来用，-r表示同步资源，-f表示指定文件上传，后面的文件以逗号分割</p>
-				<p>9、打开项目文件窗口</p>
+				<p>7、上传到服务器</p>
+				<pre class="brush: js;">gulp XXX [ -r ] [ -f 文件1,文件2,... ] [ -d 路径 ]</pre>
+				<p>说明：命令中的XXX是在配置服务器时的命令；-r和-f是可选参数，两者一般结合来用，-r表示同步资源，-f表示指定文件上传，后面的文件以逗号分割；-d 表示要创建的新文件夹，后面是文件夹名字。</p>
+				<p>8、打开项目文件窗口</p>
 				<pre class="brush: js;">gulp open -d yueren</pre>
 
 				<h4 class="mod_strong_title">快速创建模板命令</h4>
-				<p>1、创建PC活动模板</p>
-				<pre class="brush: js;">gulp template_event -d 十年_许巍,ten_xuwei [ -a xuwei ]</pre>        
-				<p>2、创建普通H5活动模板</p>
-				<pre class="brush: js;">gulp template_mobile -d 独家首发,exclusive_debut [ -a dujia ]</pre>
-				<p>3、创建滑动H5模板</p>
-				<pre class="brush: js;">gulp template_slide -d 乐人佳妮,yueren_jiani [ -a jiani ]</pre>
-				<p>说明：-a 命令可选，后面的参数是自定义项目名标志，表示创建模板后并把它添加到项目库中，建议加上，不用再手动去添加一次。</p>
+				<p>创建模板</p>
+				<pre class="brush: js;">gulp XXX -d 十年_许巍,ten_xuwei [ -a xuwei ]</pre>        
+				<p>说明：XXX对应在配置模板文件rule.js时的命令，-a 命令可选，后面的参数是自定义项目名标志，表示创建模板后并把它添加到项目库中，建议加上，不用再手动去添加一次。</p>
 
 				<h4 class="mod_strong_title">工具命令</h4>
 				<p>1、压缩CSS</p>
