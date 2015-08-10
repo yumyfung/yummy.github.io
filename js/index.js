@@ -1,4 +1,5 @@
 $(function(){
+	//nav
 	var $special = $('.special');
 	$special.click(function(){
 		var $this = $(this);
@@ -12,4 +13,9 @@ $(function(){
 		}
 		
 	})
+
+	//mobile menu
+	$('.mobile_menu').click(function(){
+		$('.navmenu').slideToggle();
+	});
 })
